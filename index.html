@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Orangutan Clicker</title>
+<link rel="stylesheet" href="style.css">
+<script src="Script.js" async></script>
+</head>
+<body>
+    <center>
+    <img src="orangutan-removebg-preview.png" class="clicker" onclick="addToScore (1)">
+<div>
+    <p class="text">Orangutans:</p>
+</div>
+
+    <p id="score" class="text">0</p>
+
+    <p class="text">
+        Oranguans per second:
+        <span class="text" id="ops">0</span>
+    </p>
+
+    <button class="tower" onclick=buychloe()>
+        <span class="text">Chloe, costs </span>
+        <span id="chloecost" class="text">5</span>
+        <span class="text"> Orangutans and makes 5 Orangutans a second.</span>
+        <span class="text">Amount Owned:</span>
+        <span id="chloeamount" class="text">0</span>
+    </button>
+
+    
+    <button class="tower" onclick=buymonke()>
+        <span class="text">Monke, costs </span>
+        <span id="monkecost" class="text">100</span>
+        <span class="text"> Orangutans and makes 10 Orangutans a second.</span>
+        <span class="text">Amount Owned:</span>
+        <span id="monkeamount" class="text">0</span>
+    </button>
+</center>
+
+
+<button class="text tower"onclick="resetgame();">Reset game</button>
+</body>
+</html>

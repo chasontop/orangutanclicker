@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+
+.text {
+color:#ffffff;
+font-family: 'Roboto', sans-serif;
+}
+
+.tower {
+    align-items: center;
+    border-radius: 10px;
+    border:  solid  #203C50;
+    border-width: 1px;
+    background-color: #afab9e;
+}
+
+.tower:hover {
+    background-color: hsla(46, 10%, 67%, 0.788);
+}
+
+body {
+    background-color: #203C50;
+}
+
