@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+/*text stuff*/
 
 .text {
-color:#ffffff;
+color:#2c2b2b;
 font-family: 'Roboto', sans-serif;
 }
+
+.independent {
+    color : #ffffff;
+}
+
+/*tower stuff*/
 
 .tower {
     align-items: center;
@@ -14,11 +21,34 @@ font-family: 'Roboto', sans-serif;
     background-color: #afab9e;
 }
 
+
 .tower:hover {
     background-color: hsla(46, 10%, 67%, 0.788);
+    cursor: pointer;
+    transform: scale(1.0420);
+   
 }
+
+.tower:active {
+    transform: scale(.9569);
+}
+
+/*background*/
 
 body {
     background-color: #203C50;
 }
+
+
+/*clicker stuff*/
+
+.clicker:hover {
+    cursor: pointer;
+        transform: scale(.9569);
+}
+
+.clicker:active {
+    transform: scale(1.05420);
+}
+
 
