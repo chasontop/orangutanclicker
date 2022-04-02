@@ -104,7 +104,7 @@ function loadgame () {
 //reset
 
 function resetgame () {
-    if (confirm ("are u sure?")) {
+    if (confirm ("Are you sure you want to reset ALL your progress?")) {
         var gamesave = {} ;
         localStorage.setItem('gamesave', JSON.stringify(gamesave));
         location.reload ();
@@ -129,3 +129,4 @@ document.addEventListener('keydown', function(event) {
         addToScore(1000000000000000);
     }
 }, false);
+
