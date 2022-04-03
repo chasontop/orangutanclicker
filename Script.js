@@ -6,26 +6,26 @@ function addToScore (amount) {
     score = score + amount
     document.getElementById("score").innerHTML = score;
 }
-// chloe stuff
-var chloecost = 5;
-var chloeamount = 0;
+// dogo stuff
+var dogocost = 5;
+var dogoamount = 0;
 
-function buychloe () {
-    if (score >= chloecost) {
-        score = score - chloecost;
-        chloeamount = chloeamount + 1;
-       chloecost = Math.round (1.75 * chloecost);
+function buydogo () {
+    if (score >= dogocost) {
+        score = score - dogocost;
+        dogoamount = dogoamount + 1;
+       dogocost = Math.round (1.75 * dogocost);
 
         document.getElementById("score").innerHTML = score;
-        document.getElementById("chloecost").innerHTML = chloecost;
-        document.getElementById("chloeamount").innerHTML = chloeamount;
+        document.getElementById("dogocost").innerHTML = dogocost;
+        document.getElementById("dogoamount").innerHTML = dogoamount;
         updateops ();
     }
 }
 setInterval (function () {
-    score = score + chloeamount * 5
+    score = score + dogoamount * 5
     document.getElementById("score").innerHTML = score;
-    document.getElementById("chloeamount").innerHTML = chloeamount;
+    document.getElementById("dogoamount").innerHTML = dogoamount;
 } , 1000);
 
 //per second
@@ -33,7 +33,7 @@ setInterval (function () {
 var ops = 0;
 
 function updateops () {
-    ops = chloeamount * 5 + monkeamount * 10;
+    ops = dogoamount * 5 + monkeamount * 10;
     document.getElementById("ops").innerHTML = ops;
 }
 
@@ -68,8 +68,8 @@ setInterval (function () {
 function savegame () {
     var gamesave = {
         score: score,
-        chloecost: chloecost,
-        chloeamount: chloeamount,
+        dogocost: dogocost,
+        dogoamount: dogoamount,
         monkeamount : monkeamount,
         monkecost: monkecost,
     };
@@ -84,9 +84,9 @@ window.onload = function () {
     loadgame();
     updateops ();
     document.getElementById('score').innerHTML = score;
-    document.getElementById('chloecost').innerHTML = chloecost;
-    document.getElementById('chloecost').innerHTML = chloecost;
-    document.getElementById('chloeamount').innerHTML = chloeamount;
+    document.getElementById('dogocost').innerHTML = dogocost;
+    document.getElementById('dogocost').innerHTML = dogocost;
+    document.getElementById('dogoamount').innerHTML = dogoamount;
     document.getElementById('monkeamount').innerHTML = monkeamount;
     document.getElementById('monkecost').innerHTML = monkecost;
 }
@@ -95,8 +95,8 @@ window.onload = function () {
 function loadgame () {
     var savedgame = JSON.parse(localStorage.getItem("gamesave"));
     if (typeof savedgame.score !== "undefined") score = savedgame.score;
-    if (typeof savedgame.chloecost !== "undefined") chloecost = savedgame.chloecost;
-    if (typeof savedgame.chloeamount !== "undefined") chloeamount = savedgame.chloeamount;
+    if (typeof savedgame.dogocost !== "undefined") dogocost = savedgame.dogocost;
+    if (typeof savedgame.dogoamount !== "undefined") dogoamount = savedgame.dogoamount;
     if (typeof savedgame.monkeamount !== "undefined") monkeamount = savedgame.monkeamount;
     if (typeof savedgame.monkecost !== "undefined") monkecost = savedgame.monkecost;
 }
