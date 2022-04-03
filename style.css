@@ -20,6 +20,7 @@ font-family: 'Roboto', sans-serif;
     border-width: 1px;
     background-color: #afab9e;
     margin-right: 7px;
+    transition: all .1s ;
 }
 
 
@@ -42,6 +43,10 @@ body {
 
 
 /*clicker stuff*/
+
+.clicker {
+    transition: all .2s ;
+}
 
 .clicker:hover {
     cursor: pointer;
