@@ -14,11 +14,12 @@ font-family: 'Roboto', sans-serif;
 /*tower stuff*/
 
 .tower {
-    align-items: center;
+    align-items: center; 
     border-radius: 10px;
     border:  solid  #203C50;
     border-width: 1px;
     background-color: #afab9e;
+    margin-right: 7px;
 }
 
 
@@ -50,5 +51,4 @@ body {
 .clicker:active {
     transform: scale(1.05420);
 }
-
 
