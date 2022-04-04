@@ -130,3 +130,8 @@ document.addEventListener('keydown', function(event) {
     }
 }, false);
 
+// save button test
+
+function savegamebutton () {
+savegame();
+   }
