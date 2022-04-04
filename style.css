@@ -5,6 +5,7 @@
 .text {
 color:#2c2b2b;
 font-family: 'Roboto', sans-serif;
+font-size: medium;
 }
 
 .independent {
@@ -46,6 +47,9 @@ body {
 
 .clicker {
     transition: all .2s ;
+    position: relative;
+
+
 }
 
 .clicker:hover {
@@ -57,3 +61,27 @@ body {
     transform: scale(1.05420);
 }
 
+/*left section*/
+
+.sectionleft {
+    float: left;
+    width: 5%;
+}
+
+
+.reset {
+    font-size: 25px;
+}
+
+
+.head {
+    font-size: 27px ;
+}
+
+/*right section */
+
+.sectionright {
+    position: static;
+    float: center;
+    width: 95%;
+}
