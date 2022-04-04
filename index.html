@@ -6,11 +6,22 @@
 <script src="Script.js" async></script>
 </head>
 <body>
-    <center>
-    <img src="orangutan.png" class="clicker" onclick="addToScore (1)">
-<div>
-    <p class="text independent">Orangutans:</p>
+
+    <div class="sectionleft">
+
+<p class="text independent head ">Miscellaneous:</p>
+
+        <button class="text tower reset"onclick="resetgame();">Reset game</button>
+        <button class="text tower reset" onclick="savegamebutton ()">Save Game</button>
+
 </div>
+
+    <center>
+        <div class="sectionright">
+    <img src="orangutan.png" class="clicker" onclick="addToScore (1)">
+
+    <p class="text independent">Orangutans:</p>
+
 
     <p id="score" class="text independent">0</p>
 
@@ -19,6 +30,8 @@
         <span class="text independent" id="ops">0</span>
     </p>
 
+<div class="test">
+    <div>
     <button class="tower" onclick=buydogo()>
         <span class="text">Dogo, costs </span>
         <span id="dogocost" class="text">5</span>
@@ -27,7 +40,8 @@
         <span id="dogoamount" class="text">0</span>
     </button>
 
-    
+</div>
+<div>
     <button class="tower" onclick=buymonke()>
         <span class="text">Monke, costs </span>
         <span id="monkecost" class="text">100</span>
@@ -35,9 +49,12 @@
         <span class="text">Amount Owned:</span>
         <span id="monkeamount" class="text">0</span>
     </button>
+</div>
+</div>
+</div>
 </center>
 
 
-<button class="text tower"onclick="resetgame();">Reset game</button>
+
 </body>
 </html>
