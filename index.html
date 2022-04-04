@@ -14,11 +14,15 @@
         <button class="text tower reset"onclick="resetgame();">Reset game</button>
         <button class="text tower reset" onclick="savegamebutton ()">Save Game</button>
 
+<span>
+        <p class="text independent">Total Clicks:</p>
+        <p class="text independent" id="totalclicks">0</p>
+    </span>
 </div>
 
     <center>
         <div class="sectionright">
-    <img src="orangutan.png" class="clicker" onclick="addToScore (1)">
+    <img src="orangutan.png" class="clicker" onclick="addToScore (1); updatetotalclicks (1) " >
 
     <p class="text independent">Orangutans:</p>
 
