@@ -72,6 +72,7 @@ function savegame () {
         dogoamount: dogoamount,
         monkeamount : monkeamount,
         monkecost: monkecost,
+        totalclicks: totalclicks
     };
     localStorage.setItem("gamesave", JSON.stringify(gamesave));
 }
@@ -89,6 +90,7 @@ window.onload = function () {
     document.getElementById('dogoamount').innerHTML = dogoamount;
     document.getElementById('monkeamount').innerHTML = monkeamount;
     document.getElementById('monkecost').innerHTML = monkecost;
+    document.getElementById("totalclicks").innerHTML = totalclicks;
 }
 
 
@@ -99,6 +101,8 @@ function loadgame () {
     if (typeof savedgame.dogoamount !== "undefined") dogoamount = savedgame.dogoamount;
     if (typeof savedgame.monkeamount !== "undefined") monkeamount = savedgame.monkeamount;
     if (typeof savedgame.monkecost !== "undefined") monkecost = savedgame.monkecost;
+    if (typeof savedgame.totalclicks !== "undefined") totalclicks = savedgame.totalclicks;
+
 }
 
 //reset
@@ -117,6 +121,7 @@ document.addEventListener("keydown", function(event) {
 if (event.ctrlKey && event.which == 83) {
     event.preventDefault();
     savegame();
+    alert('Game Saved!')
 }
 }, false);
 
@@ -134,4 +139,14 @@ document.addEventListener('keydown', function(event) {
 
 function savegamebutton () {
 savegame();
+alert('Game Saved!')
    }
+
+// total clicks
+
+var totalclicks = 0
+
+function updatetotalclicks (amount) {
+    totalclicks = totalclicks + amount ;
+    document.getElementById("totalclicks").innerHTML = totalclicks;
+}
