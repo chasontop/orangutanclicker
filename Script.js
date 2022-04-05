@@ -9,16 +9,18 @@ function addToScore (amount) {
 // dogo stuff
 var dogocost = 5;
 var dogoamount = 0;
-
+var dogoops = 5;
 function buydogo () {
     if (score >= dogocost) {
         score = score - dogocost;
         dogoamount = dogoamount + 1;
        dogocost = Math.round (1.75 * dogocost);
+       dogoops = dogoamount * 5;
 
         document.getElementById("score").innerHTML = score;
         document.getElementById("dogocost").innerHTML = dogocost;
         document.getElementById("dogoamount").innerHTML = dogoamount;
+        document.getElementById("dogoops").innerHTML = dogoops;
         updateops ();
     }
 }
@@ -33,15 +35,17 @@ setInterval (function () {
 
 var frogcost = 10000
 var frogamount = 0
-
+var frogops = 25;
 function buyfrog () {
     if (score >= frogcost) {
         score = score - frogcost;
         frogamount = frogamount + 1;
         frogcost = Math.round(1.75 * frogcost);
+        frogops = frogamount * 25;
         document.getElementById("score").innerHTML = score;
         document.getElementById("frogcost").innerHTML = frogcost;
         document.getElementById("frogamount").innerHTML = frogamount;
+        document.getElementById("frogops").innerHTML = frogops;
         updateops ();
     }
 }
@@ -66,16 +70,18 @@ function updateops () {
 var monkeamount = 0
 var monkecost = 100
 var monke = 0;
+var monkeops = 10;
 
 function buymonke () {
     if (score >= monkecost) {
         score = score - monkecost;
         monkeamount = monkeamount + 1;
        monkecost = Math.round (1.75 * monkecost);
-
+       monkeops = monkeamount * 10;
         document.getElementById("score").innerHTML = score;
         document.getElementById("monkecost").innerHTML = monkecost;
         document.getElementById("monkeamount").innerHTML = monkeamount;
+        document.getElementById("monkeops").innerHTML = monkeops;
         updateops ();
     }
 }
@@ -98,7 +104,10 @@ function savegame () {
         monkecost: monkecost,
         totalclicks: totalclicks,
         frogamount: frogamount,
-        frogcost: frogcost
+        frogcost: frogcost,
+        dogoops: dogoops,
+        monkeops: monkeops,
+        frogops: frogops
     };
     localStorage.setItem("gamesave", JSON.stringify(gamesave));
 }
@@ -119,6 +128,11 @@ window.onload = function () {
     document.getElementById("totalclicks").innerHTML = totalclicks;
     document.getElementById("frogamount").innerHTML = frogamount;
     document.getElementById("frogcost").innerHTML = frogcost;
+    document.getElementById("dogoops").innerHTML = dogoops;
+    document.getElementById("monkeops").innerHTML = monkeops;
+    document.getElementById("frogops").innerHTML = frogops;
+
+
 }
 
 
@@ -130,7 +144,11 @@ function loadgame () {
     if (typeof savedgame.monkeamount !== "undefined") monkeamount = savedgame.monkeamount;
     if (typeof savedgame.monkecost !== "undefined") monkecost = savedgame.monkecost;
     if (typeof savedgame.totalclicks !== "undefined") totalclicks = savedgame.totalclicks;
-    
+    if (typeof savedgame.frogamount !== "undefined") frogamount = savedgame.frogamount;
+    if (typeof savedgame.frogcost !== "undefined") frogcost = savedgame.frogcost;
+    if (typeof savedgame.dogoops !== "undefined") dogoops = savedgame.dogoops;
+    if (typeof savedgame.monkeops !== "undefined") monkeops = savedgame.monkeops;
+    if (typeof savedgame.frogops !== "undefined") frogops = savedgame.frogops;
 }
 
 //reset
