@@ -46,7 +46,7 @@ body {
 /*clicker stuff*/
 
 .clicker {
-    transition: all .2s ;
+    transition: all .05s ;
     position: relative;
 
 
