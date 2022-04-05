@@ -3,7 +3,7 @@
 var score = 0;
 
 function addToScore (amount) {
-    score = score + amount
+    score = score + amount;
     document.getElementById("score").innerHTML = score;
 }
 // dogo stuff
@@ -28,12 +28,36 @@ setInterval (function () {
     document.getElementById("dogoamount").innerHTML = dogoamount;
 } , 1000);
 
+
+// frog
+
+var frogcost = 10000
+var frogamount = 0
+
+function buyfrog () {
+    if (score >= frogcost) {
+        score = score - frogcost;
+        frogamount = frogamount + 1;
+        frogcost = Math.round(1.75 * frogcost);
+        document.getElementById("score").innerHTML = score;
+        document.getElementById("frogcost").innerHTML = frogcost;
+        document.getElementById("frogamount").innerHTML = frogamount;
+        updateops ();
+    }
+}
+
+setInterval (function () {
+    score = score + frogamount * 25;
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("frogamount").innerHTML = frogamount;
+} , 1000);
+
 //per second
 
 var ops = 0;
 
 function updateops () {
-    ops = dogoamount * 5 + monkeamount * 10;
+    ops = dogoamount * 5 + monkeamount * 10 + frogamount * 25;
     document.getElementById("ops").innerHTML = ops;
 }
 
@@ -72,7 +96,9 @@ function savegame () {
         dogoamount: dogoamount,
         monkeamount : monkeamount,
         monkecost: monkecost,
-        totalclicks: totalclicks
+        totalclicks: totalclicks,
+        frogamount: frogamount,
+        frogcost: frogcost
     };
     localStorage.setItem("gamesave", JSON.stringify(gamesave));
 }
@@ -91,6 +117,8 @@ window.onload = function () {
     document.getElementById('monkeamount').innerHTML = monkeamount;
     document.getElementById('monkecost').innerHTML = monkecost;
     document.getElementById("totalclicks").innerHTML = totalclicks;
+    document.getElementById("frogamount").innerHTML = frogamount;
+    document.getElementById("frogcost").innerHTML = frogcost;
 }
 
 
@@ -102,7 +130,7 @@ function loadgame () {
     if (typeof savedgame.monkeamount !== "undefined") monkeamount = savedgame.monkeamount;
     if (typeof savedgame.monkecost !== "undefined") monkecost = savedgame.monkecost;
     if (typeof savedgame.totalclicks !== "undefined") totalclicks = savedgame.totalclicks;
-
+    
 }
 
 //reset
@@ -150,3 +178,4 @@ function updatetotalclicks (amount) {
     totalclicks = totalclicks + amount ;
     document.getElementById("totalclicks").innerHTML = totalclicks;
 }
+
