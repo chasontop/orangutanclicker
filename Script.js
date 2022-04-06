@@ -17,6 +17,20 @@ function buydogo () {
        dogocost = Math.round (1.75 * dogocost);
        dogoops = dogoamount * 5;
 
+       if (dogoamount >= 15) {
+        dogocost = Math.round (1.25 * dogocost / 1.75)
+        }
+        
+        if (dogoamount >= 25) {
+            dogocost = Math.round (1.5 * dogocost / 1.25)
+            }    
+
+            if (dogoamount >= 30) {
+                dogocost = Math.round (1.75 * dogocost / 1.5)
+                }
+                
+
+
         document.getElementById("score").innerHTML = score;
         document.getElementById("dogocost").innerHTML = dogocost;
         document.getElementById("dogoamount").innerHTML = dogoamount;
@@ -42,6 +56,22 @@ function buyfrog () {
         frogamount = frogamount + 1;
         frogcost = Math.round(1.75 * frogcost);
         frogops = frogamount * 25;
+
+        if (frogamount >= 15) {
+            frogcost = Math.round (1.25 * frogcost / 1.75)
+            }
+            
+            if (frogamount >= 25) {
+                frogcost = Math.round (1.5 * frogcost / 1.25)
+                }    
+    
+                if (dogoamount >= 30) {
+                    frogcost = Math.round (1.75 * frogcost / 1.5)
+                    }
+
+
+
+
         document.getElementById("score").innerHTML = score;
         document.getElementById("frogcost").innerHTML = frogcost;
         document.getElementById("frogamount").innerHTML = frogamount;
@@ -78,6 +108,20 @@ function buymonke () {
         monkeamount = monkeamount + 1;
        monkecost = Math.round (1.75 * monkecost);
        monkeops = monkeamount * 10;
+
+       if (monkeamount >= 15) {
+        monkecost = Math.round (1.25 * monkecost / 1.75)
+        }
+        
+        if (monkeamount >= 25) {
+            monkecost = Math.round (1.5 * monkecost / 1.25)
+            }    
+
+            if (monkeamount >= 30) {
+                monkecost = Math.round (1.75 * monkecost / 1.5)
+                }
+
+
         document.getElementById("score").innerHTML = score;
         document.getElementById("monkecost").innerHTML = monkecost;
         document.getElementById("monkeamount").innerHTML = monkeamount;
