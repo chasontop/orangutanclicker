@@ -4,8 +4,24 @@ var score = 0;
 
 function addToScore (amount) {
     score = score + amount;
+    var amount = 1
     document.getElementById("score").innerHTML = score;
 }
+
+// add to score 1s
+
+setInterval (function () {
+    score += dogoamount * 5 + monkeamount * 10 + frogamount * 25 + rokamount * 150 + bozzoamount * 1000;
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("bozzoamount").innerHTML = bozzoamount;
+    document.getElementById("dogoamount").innerHTML = dogoamount;
+    document.getElementById("monkeamount").innerHTML = monkeamount;
+    document.getElementById("frogamount").innerHTML = frogamount;
+    document.getElementById("rokamount").innerHTML = rokamount;
+
+} , 1000);
+
+
 // dogo stuff
 var dogocost = 5;
 var dogoamount = 0;
@@ -38,11 +54,7 @@ function buydogo () {
         updateops ();
     }
 }
-setInterval (function () {
-    score = score + dogoamount * 5
-    document.getElementById("score").innerHTML = score;
-    document.getElementById("dogoamount").innerHTML = dogoamount;
-} , 1000);
+
 
 
 // frog
@@ -80,18 +92,14 @@ function buyfrog () {
     }
 }
 
-setInterval (function () {
-    score = score + frogamount * 25;
-    document.getElementById("score").innerHTML = score;
-    document.getElementById("frogamount").innerHTML = frogamount;
-} , 1000);
+
 
 //per second
 
 var ops = 0;
 
 function updateops () {
-    ops = dogoamount * 5 + monkeamount * 10 + frogamount * 25 + rokamount * 150;
+    ops = dogoamount * 5 + monkeamount * 10 + frogamount * 25 + rokamount * 150 + bozzoamount * 1000;
     document.getElementById("ops").innerHTML = ops;
 }
 
@@ -130,11 +138,7 @@ function buymonke () {
     }
 }
 
-setInterval (function () {
-    score = score + monkeamount * 10
-    document.getElementById("score").innerHTML = score;
-    document.getElementById("monkeamount").innerHTML = monkeamount;
-} , 1000);
+
 
 
 
@@ -172,11 +176,7 @@ function buyrok () {
     }
 }
 
-setInterval (function () {
-    score = score + rokamount * 150
-    document.getElementById("score").innerHTML = score;
-    document.getElementById("rokamount").innerHTML = rokamount;
-} , 1000);
+
 
 // IMPORTANT SAVE STUFF
 
@@ -195,7 +195,10 @@ function savegame () {
         frogops: frogops,
         rokops: rokops,
         rokamount: rokamount,
-        rokcost: rokcost
+        rokcost: rokcost,
+        bozzocost: bozzocost,
+        bozzoamount: bozzoamount,
+        bozzoops: bozzoops,
     };
     localStorage.setItem("gamesave", JSON.stringify(gamesave));
 }
@@ -222,6 +225,10 @@ window.onload = function () {
     document.getElementById("rokamount").innerHTML = rokamount;
     document.getElementById("rokcost").innerHTML = rokcost;
     document.getElementById("rokops").innerHTML = rokops;
+    document.getElementById("bozzoamount").innerHTML = bozzoamount;
+    document.getElementById("bozzocost").innerHTML = bozzocost;
+    document.getElementById("bozzoops").innerHTML = bozzoops;
+
 }
 
 
@@ -241,6 +248,9 @@ function loadgame () {
     if (typeof savedgame.rokops !== "undefined") rokops = savedgame.rokops;
     if (typeof savedgame.rokamount !== "undefined") rokamount = savedgame.rokamount;
     if (typeof savedgame.rokcost !== "undefined") rokcost = savedgame.rokcost;
+    if (typeof savedgame.bozzoops !== "undefined") bozzoops = savedgame.bozzoops;
+    if (typeof savedgame.bozzoamount !== "undefined") bozzoamount = savedgame.bozzoamount;
+    if (typeof savedgame.bozzocost !== "undefined") bozzocost = savedgame.bozzocost;
 }
 
 //reset
@@ -297,3 +307,52 @@ document.addEventListener('keydown', function(event) {
        alert('balls');
     }
 }, false);
+
+// reset key
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+      if (event.ctrlKey && event.which == 82) {
+        event.preventDefault();
+        resetgame()
+      }
+    },
+    false
+  );
+
+  //bozzo 
+
+var bozzocost = 10000000;
+var bozzoamount = 0;
+var bozzoops = 1000;
+function buybozzo () {
+    if (score >= bozzocost) {
+        score = score - bozzocost;
+        bozzoamount = bozzoamount + 1;
+        bozzocost = Math.round (1.75 * bozzocost);
+        bozzoops = bozzoamount * 1000;
+
+       if (bozzoamount >= 15) {
+        bozzocost = Math.round (1.25 * bozzocost / 1.75)
+        }
+        
+        if (bozzoamount >= 25) {
+            bozzocost = Math.round (1.5 * bozzocost / 1.25)
+            }    
+
+            if (bozzoamount >= 30) {
+                bozzocost = Math.round (1.75 * bozzocost / 1.5)
+                }
+                
+
+
+        document.getElementById("score").innerHTML = score;
+        document.getElementById("bozzocost").innerHTML = bozzocost;
+        document.getElementById("bozzoamount").innerHTML = bozzoamount;
+        document.getElementById("bozzoops").innerHTML = bozzoops;
+        updateops ();
+    }
+}
+
+
