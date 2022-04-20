@@ -13,11 +13,16 @@
 </head>
 <body>
 
+<div class="sectionright">
+
+</div>
+
+
     <div class="sectionleft">
 
 <p class="text independent head ">Miscellaneous:</p>
 
-        <button class="text tower reset"onclick="resetgame();">Reset game</button>
+        <button class="text tower reset"onclick="resetgame();">Reset Game</button>
         <button class="text tower reset" onclick="savegamebutton ()">Save Game</button>
 
 <span>
@@ -28,7 +33,7 @@
 </div>
 
     <center>
-        <div class="sectionright">
+        <div class="sectioncenter">
     <img src="orangutan.png" class="clicker" onclick="addToScore (1); updatetotalclicks (1) " >
 
     <p class="text independent">Orangutans:</p>
@@ -41,7 +46,7 @@
         <span class="text independent" id="ops">0</span>
     </p>
 
-<div class="test">
+
     <div>
     <button class="tower" onclick="buydogo()">
         <span class="text">Doggo, costs </span>
@@ -52,6 +57,7 @@
         <span class="text">Amount Owned:</span>
         <span id="dogoamount" class="text">0</span>
     </button>
+
 
 </div>
 <div>
@@ -88,13 +94,25 @@
     <span id="rokamount" class="text">0</span>
 </button>
 </div>
-
+<div>
+    <button class="tower" onclick="buybozzo ()">
+        <span class="text">Bozzo, costs </span>
+        <span id="bozzocost" class="text">10,000,000</span>
+        <span class="text"> Orangutans and makes </span>
+        <span class="text" id="bozzoops">150</span>
+        <span class="text">Orangutans a second.</span>
+        <span class="text">Amount Owned:</span>
+        <span id="bozzoamount" class="text">0</span>
+    </button>
+</div>
 
 </div>
-</div>
+
 </center>
 
-
+<p class="nothiddentext independent">
+    monjey
+    </p>
 
 </body>
 </html>
