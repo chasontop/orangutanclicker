@@ -39,8 +39,9 @@ font-size: medium;
 /*background*/
 
 body {
-    background-color: #203C50;
+    background-image:linear-gradient(to right, #3b4b61, #3a5675);
 }
+
 
 
 /*clicker stuff*/
@@ -65,7 +66,7 @@ body {
 
 .sectionleft {
     float: left;
-    width: 5%;
+    width: 0%;
 }
 
 
@@ -80,8 +81,21 @@ body {
 
 /*right section */
 
-.sectionright {
+.sectioncenter {
     position: static;
     float: center;
-    width: 95%;
+    width: 550px;
+}
+
+/*shhh*/
+
+.nothiddentext {
+    opacity: 00;
+    top: 1%;
+    position:absolute;
+
+}
+
+.nothiddentext:hover {
+    opacity: 100%;
 }
