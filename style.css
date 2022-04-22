@@ -39,7 +39,7 @@ font-size: medium;
 /*background*/
 
 body {
-    background-image:linear-gradient(to right, #3b4b61, #3a5675);
+    background-image:linear-gradient(to right, #0c315a, #407bbd);
 }
 
 
@@ -99,3 +99,5 @@ body {
 .nothiddentext:hover {
     opacity: 100%;
 }
+
+
