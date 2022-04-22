@@ -11,7 +11,7 @@ function addToScore (amount) {
 // add to score 1s
 
 setInterval (function () {
-    score += dogoamount * 5 + monkeamount * 10 + frogamount * 25 + rokamount * 150 + bozzoamount * 1000;
+    score += dogoamount * 5 + monkeamount * 10 + frogamount * 25 + rokamount * 150 + bozzoamount * 1000 + chasamount * 10000;
     document.getElementById("score").innerHTML = score;
     document.getElementById("bozzoamount").innerHTML = bozzoamount;
     document.getElementById("dogoamount").innerHTML = dogoamount;
@@ -99,7 +99,7 @@ function buyfrog () {
 var ops = 0;
 
 function updateops () {
-    ops = dogoamount * 5 + monkeamount * 10 + frogamount * 25 + rokamount * 150 + bozzoamount * 1000;
+    ops = dogoamount * 5 + monkeamount * 10 + frogamount * 25 + rokamount * 150 + bozzoamount * 1000 + chasamount * 1000;
     document.getElementById("ops").innerHTML = ops;
 }
 
@@ -146,7 +146,7 @@ function buymonke () {
 
 var rokcost = 1000000;
 var rokamount = 0;
-var rokops = 0;
+var rokops = 150;
 
 
 function buyrok () {
@@ -199,6 +199,9 @@ function savegame () {
         bozzocost: bozzocost,
         bozzoamount: bozzoamount,
         bozzoops: bozzoops,
+        chasops: chasops,
+        chasamount: chasamount,
+        chascost: chascost,
     };
     localStorage.setItem("gamesave", JSON.stringify(gamesave));
 }
@@ -228,6 +231,10 @@ window.onload = function () {
     document.getElementById("bozzoamount").innerHTML = bozzoamount;
     document.getElementById("bozzocost").innerHTML = bozzocost;
     document.getElementById("bozzoops").innerHTML = bozzoops;
+    document.getElementById("chasamount").innerHTML = chasamount;
+    document.getElementById("chascost").innerHTML = chascost;
+    document.getElementById("chasops").innerHTML = chasops;
+
 
 }
 
@@ -251,6 +258,9 @@ function loadgame () {
     if (typeof savedgame.bozzoops !== "undefined") bozzoops = savedgame.bozzoops;
     if (typeof savedgame.bozzoamount !== "undefined") bozzoamount = savedgame.bozzoamount;
     if (typeof savedgame.bozzocost !== "undefined") bozzocost = savedgame.bozzocost;
+    if (typeof savedgame.chasops !== "undefined") chasops = savedgame.chasops;
+    if (typeof savedgame.chasamount !== "undefined") chasamount = savedgame.chasamount;
+    if (typeof savedgame.chascost !== "undefined") chascost = savedgame.chascost;
 }
 
 //reset
@@ -355,4 +365,36 @@ function buybozzo () {
     }
 }
 
+// chas
 
+var chascost = 25000000;
+var chasamount = 0;
+var chasops = 10000;
+function buychas () {
+    if (score >= chascost) {
+        score = score - chascost;
+        chasamount = chasamount + 1;
+       chascost = Math.round (1.75 * chascost);
+       chasops = chasamount * 25000000;
+
+       if (chasamount >= 15) {
+        chascost = Math.round (1.25 * chascost / 1.75)
+        }
+        
+        if (chasamount >= 25) {
+            chascost = Math.round (1.5 * chascost / 1.25)
+            }    
+
+            if (chasamount >= 30) {
+                chascost = Math.round (1.75 * chascost / 1.5)
+                }
+                
+
+
+        document.getElementById("score").innerHTML = score;
+        document.getElementById("chascost").innerHTML = chascost;
+        document.getElementById("chasamount").innerHTML = chasamount;
+        document.getElementById("chasops").innerHTML = chasops;
+        updateops ();
+    }
+}
