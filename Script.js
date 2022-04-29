@@ -99,7 +99,7 @@ function buyfrog () {
 var ops = 0;
 
 function updateops () {
-    ops = dogoamount * 5 + monkeamount * 10 + frogamount * 25 + rokamount * 150 + bozzoamount * 1000 + chasamount * 1000;
+    ops = dogoamount * 5 + monkeamount * 10 + frogamount * 25 + rokamount * 150 + bozzoamount * 1000 + chasamount * 10000;
     document.getElementById("ops").innerHTML = ops;
 }
 
@@ -375,7 +375,7 @@ function buychas () {
         score = score - chascost;
         chasamount = chasamount + 1;
        chascost = Math.round (1.75 * chascost);
-       chasops = chasamount * 25000000;
+       chasops = chasamount * 10000;
 
        if (chasamount >= 15) {
         chascost = Math.round (1.25 * chascost / 1.75)
