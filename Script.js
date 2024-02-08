@@ -305,7 +305,7 @@ alert('Game Saved!')
 var totalclicks = 0
 
 function updatetotalclicks (amount) {
-    totalclicks = totalclicks + amount ;
+    totalclicks = totalclicks - amount ;
     document.getElementById("totalclicks").innerHTML = totalclicks;
 }
 
