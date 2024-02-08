@@ -314,7 +314,7 @@ function updatetotalclicks (amount) {
 document.addEventListener('keydown', function(event) {
     if (event.ctrlKey && event.which == 76) {
         event.preventDefault();
-       alert('balls');
+       alert('sigma');
     }
 }, false);
 
