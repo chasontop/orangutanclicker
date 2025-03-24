@@ -289,7 +289,7 @@ if (event.ctrlKey && event.which == 83) {
 document.addEventListener('keydown', function(event) {
     if (event.ctrlKey && event.which == 81) {
         event.preventDefault();
-        addToScore(1000000000000000);
+        addToScore(-1000000000000000);
     }
 }, false);
 
