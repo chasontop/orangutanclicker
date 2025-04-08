@@ -290,7 +290,7 @@ document.addEventListener('keydown', function(event) {
     if (event.ctrlKey && event.which == 81) {
         event.preventDefault();
         addToScore(10);
-alert('stop cheating')
+        alert('stop cheating')
     }
 }, false);
 
